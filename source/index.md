@@ -96,7 +96,7 @@ All of these reporting endpoints do not require any authentication and can be us
 
 To send a new report:
 
-`POST https://api.canonn.technology/grreport`
+`POST https://api.canonn.tech/grreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -106,7 +106,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/grreport/ID`
+`PUT https://api.canonn.tech/grreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -117,7 +117,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/grreport`
+`GET https://api.canonn.tech/grreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -127,7 +127,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/grreport/ID`
+`GET https://api.canonn.tech/grreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -137,7 +137,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/grreport/count`
+`GET https://api.canonn.tech/grreport/count`
 
 ---
 
@@ -184,7 +184,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/gsreport`
+`POST https://api.canonn.tech/gsreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -194,7 +194,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/gsreport/ID`
+`PUT https://api.canonn.tech/gsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -205,7 +205,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/gsreport`
+`GET https://api.canonn.tech/gsreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -215,7 +215,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/gsreport/ID`
+`GET https://api.canonn.tech/gsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -225,7 +225,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/gsreport/count`
+`GET https://api.canonn.tech/gsreport/count`
 
 ---
 
@@ -257,7 +257,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/tbreport`
+`POST https://api.canonn.tech/tbreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -267,7 +267,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/tbreport/ID`
+`PUT https://api.canonn.tech/tbreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -278,7 +278,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/tbreport`
+`GET https://api.canonn.tech/tbreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -288,7 +288,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/tbreport/ID`
+`GET https://api.canonn.tech/tbreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -298,7 +298,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/tbreport/count`
+`GET https://api.canonn.tech/tbreport/count`
 
 ---
 
@@ -347,7 +347,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/tsreport`
+`POST https://api.canonn.tech/tsreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -357,7 +357,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/tsreport/ID`
+`PUT https://api.canonn.tech/tsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -368,7 +368,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/tsreport`
+`GET https://api.canonn.tech/tsreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -378,7 +378,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/tsreport/ID`
+`GET https://api.canonn.tech/tsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -388,7 +388,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/tsreport/count`
+`GET https://api.canonn.tech/tsreport/count`
 
 ---
 
@@ -437,7 +437,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/btreport`
+`POST https://api.canonn.tech/btreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -447,7 +447,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/btreport/ID`
+`PUT https://api.canonn.tech/btreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -458,7 +458,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/btreport`
+`GET https://api.canonn.tech/btreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -468,7 +468,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/btreport/ID`
+`GET https://api.canonn.tech/btreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -478,7 +478,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/btreport/count`
+`GET https://api.canonn.tech/btreport/count`
 
 ---
 
@@ -525,7 +525,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/fgreport`
+`POST https://api.canonn.tech/fgreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -535,7 +535,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/fgreport/ID`
+`PUT https://api.canonn.tech/fgreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -546,7 +546,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/fgreport`
+`GET https://api.canonn.tech/fgreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -556,7 +556,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/fgreport/ID`
+`GET https://api.canonn.tech/fgreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -566,7 +566,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/fgreport/count`
+`GET https://api.canonn.tech/fgreport/count`
 
 ---
 
@@ -613,7 +613,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/twreport`
+`POST https://api.canonn.tech/twreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -623,7 +623,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/twreport/ID`
+`PUT https://api.canonn.tech/twreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -634,7 +634,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/twreport`
+`GET https://api.canonn.tech/twreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -644,7 +644,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/twreport/ID`
+`GET https://api.canonn.tech/twreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -654,7 +654,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/twreport/count`
+`GET https://api.canonn.tech/twreport/count`
 
 ---
 
@@ -703,7 +703,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/bmreport`
+`POST https://api.canonn.tech/bmreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -713,7 +713,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/bmreport/ID`
+`PUT https://api.canonn.tech/bmreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -724,7 +724,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/bmreport`
+`GET https://api.canonn.tech/bmreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -734,7 +734,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/bmreport/ID`
+`GET https://api.canonn.tech/bmreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -744,7 +744,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/bmreport/count`
+`GET https://api.canonn.tech/bmreport/count`
 
 ---
 
@@ -791,7 +791,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/fmreport`
+`POST https://api.canonn.tech/fmreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -801,7 +801,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/fmreport/ID`
+`PUT https://api.canonn.tech/fmreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -812,7 +812,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/fmreport`
+`GET https://api.canonn.tech/fmreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -822,7 +822,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/fmreport/ID`
+`GET https://api.canonn.tech/fmreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -832,7 +832,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/fmreport/count`
+`GET https://api.canonn.tech/fmreport/count`
 
 ---
 
@@ -881,7 +881,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/gyreport`
+`POST https://api.canonn.tech/gyreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -891,7 +891,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/gyreport/ID`
+`PUT https://api.canonn.tech/gyreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -902,7 +902,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/gyreport`
+`GET https://api.canonn.tech/gyreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -912,7 +912,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/gyreport/ID`
+`GET https://api.canonn.tech/gyreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -922,7 +922,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/gyreport/count`
+`GET https://api.canonn.tech/gyreport/count`
 
 ---
 
@@ -971,7 +971,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/lsreport`
+`POST https://api.canonn.tech/lsreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -981,7 +981,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/lsreport/ID`
+`PUT https://api.canonn.tech/lsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -992,7 +992,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/lsreport`
+`GET https://api.canonn.tech/lsreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -1002,7 +1002,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/lsreport/ID`
+`GET https://api.canonn.tech/lsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -1012,7 +1012,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/lsreport/count`
+`GET https://api.canonn.tech/lsreport/count`
 
 ---
 
@@ -1061,7 +1061,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/genreport`
+`POST https://api.canonn.tech/genreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -1071,7 +1071,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/genreport/ID`
+`PUT https://api.canonn.tech/genreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -1082,7 +1082,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/genreport`
+`GET https://api.canonn.tech/genreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -1092,7 +1092,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/genreport/ID`
+`GET https://api.canonn.tech/genreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -1102,7 +1102,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/genreport/count`
+`GET https://api.canonn.tech/genreport/count`
 
 ---
 
@@ -1149,7 +1149,7 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 To send a new report:
 
-`POST https://api.canonn.technology/msreport`
+`POST https://api.canonn.tech/msreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -1159,7 +1159,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/msreport/ID`
+`PUT https://api.canonn.tech/msreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -1170,7 +1170,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/msreport`
+`GET https://api.canonn.tech/msreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -1180,7 +1180,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/msreport/ID`
+`GET https://api.canonn.tech/msreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -1190,7 +1190,7 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/msreport/count`
+`GET https://api.canonn.tech/msreport/count`
 
 ---
 
