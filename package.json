@@ -1,7 +1,7 @@
 {
-  "name": "whiteboard",
-  "version": "1.1.0",
-  "license": "Apache-2.0",
+  "name": "CAPIv2-Docs",
+  "version": "v2.0.5",
+  "license": "MIT",
   "main": "lib/whiteboard",
   "hexo": {
     "version": "3.7.1"
