@@ -1027,7 +1027,6 @@ To get a count of all the reports:
         "bodyName": "1 D A",
         "latitude": 21.9127,
         "longitude": 24.5374,
-        "type": "Lava Spouts",
         "count": 26,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
@@ -1041,7 +1040,6 @@ systemName | string | Yes | TEGNAE HT-Z D13-1 | Name of System
 bodyName | string | Yes | 1 D A | Name of Body
 latitude | decimal | Yes | -6.9893 | Latitude should match this format 80.4567
 longitude | decimal | Yes | -152.8119 | Longitude should match this format 80.4567
-type | enum | Yes | Lava Spouts | **For now only use Lava Spouts**
 count | int | No | 26 | Optional count of Lava Spouts
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
@@ -1129,7 +1127,7 @@ To get a count of all the reports:
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
 systemName | string | Yes | Lalande 2966 | Name of System
-orbitBody | string | Yes | 4 | Name of Body the ship orbits
+orbitBody | string | No | 4 | Name of Body the ship orbits
 shipName | string | Yes | Generation Ship Hyperion | The name of the ship including "Generation Ship"
 directionSystem | string | No | Yemaki | System to fly towards to get to the ship
 distance | int | No | 7340 | Distance in Ls to fly towards
@@ -1196,7 +1194,7 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### MS Report Structure
 
 > Example Structure in JSON
 
@@ -1223,6 +1221,7 @@ systemName | string | Yes | PLEIADES SECTOR IR-W D1-55 | Name of System
 orbitBody | string | No | 4 | Name of Body the ship orbits
 shipName | string | Yes | BTG-237 | The name of the ship
 shipTag | string | No | btg237 | Simple lowercase shortcode of the name
+type | enum | Yes | Banner Class Bulk Cargo Ship | See Type List below, if your unsure use "Unknown"
 flightOps | bool | Yes | false | Does the ship have flightOps capability
 flightSchedule | bool | false | N/A | Does the ship have a schedule
 dockable | bool | false | N/A | Can you dock with the ship
@@ -1233,6 +1232,32 @@ comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+#### MS Type List
+
+Types:
+
+* Alcatraz Class Prison Ship
+* Aquarius Class Tanker
+* Banner Class Bulk Cargo Ship
+* Bellmarsh Class Prison Ship
+* Bowman Class Science Vessel
+* Demeter Class Agricultural Vessel
+* Dionysus Class Agricultural Vessel
+* Gordon Class Bulk Cargo Ship
+* Henry Class Bulk Cargo Ship
+* Hercules Class Bulk Cargo Ship
+* Hogan Class Bulk Cargo Ship
+* Lowell Class Science Vessel
+* Megaship
+* Naphtha Class Tanker
+* Riker Class Prison Ship
+* Sagan Class Tourist Ship
+* Samson Class Bulk Cargo Ship
+* Sanchez Class Science Vessel
+* Survey Vessel
+* Thomas Class Bulk Cargo Ship
+* Unknown
 
 ---
 
