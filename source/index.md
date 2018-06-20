@@ -748,18 +748,18 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### BM Report Structure
 
 > Example Structure in JSON
 
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "FLOAWNS BV-V D3-1123",
+        "bodyName": "AB 1 A",
+        "latitude": 51.4334,
+        "longitude": 17.5896,
+        "count": 41,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -768,11 +768,11 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | FLOAWNS BV-V D3-1123 | Name of System
+bodyName | string | Yes | AB 1 A | Name of Body
+latitude | decimal | Yes | 21.9127 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
+count | int | No | 41 | Optional count of Bark Mounds
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -836,18 +836,19 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### FM Report Structure
 
 > Example Structure in JSON
 
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "BLU EUQ BM-C D13-24",
+        "bodyName": "ABC 1 C A",
+        "latitude": -67.1605,
+        "longitude": 55.5439,
+        "type": "Silicate Vapour",
+        "count": 21,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -856,11 +857,12 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | BLU EUQ BM-C D13-24 | Name of System
+bodyName | string | Yes | ABC 1 C A | Name of Body
+latitude | decimal | Yes | 21.9127 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
+type | enum | Yes | Silicate Vapour | *List coming soon*
+count | int | No | 21 | Optional count of Tube Worms
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -924,18 +926,19 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### GY Report Structure
 
 > Example Structure in JSON
 
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "SNOTRICOPA",
+        "bodyName": "2 D A",
+        "latitude": 61.2685,
+        "longitude": 155.0603,
+        "type": "Water Vapour",
+        "count": 13,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -944,11 +947,12 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | SNOTRICOPA | Name of System
+bodyName | string | Yes | 2 D A | Name of Body
+latitude | decimal | Yes | 61.2685 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 155.0603 | Longitude should match this format 80.4567
+type | enum | Yes | Water Vapour | *List coming soon*
+count | int | No | 13 | Optional count of Geysers
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -1012,18 +1016,19 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### LS Report Structure
 
 > Example Structure in JSON
 
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "TEGNAE HT-Z D13-1",
+        "bodyName": "1 D A",
+        "latitude": 21.9127,
+        "longitude": 24.5374,
+        "type": "Lava Spouts",
+        "count": 26,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -1032,11 +1037,12 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | TEGNAE HT-Z D13-1 | Name of System
+bodyName | string | Yes | 1 D A | Name of Body
+latitude | decimal | Yes | -6.9893 | Latitude should match this format 80.4567
+longitude | decimal | Yes | -152.8119 | Longitude should match this format 80.4567
+type | enum | Yes | Lava Spouts | **For now only use Lava Spouts**
+count | int | No | 26 | Optional count of Lava Spouts
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -1102,18 +1108,18 @@ To get a count of all the reports:
 
 ---
 
-#### Report Structure
+#### GEN Report Structure
 
 > Example Structure in JSON
 
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "Lalande 2966",
+        "orbitBody": "4",
+        "shipName": "Generation Ship Hyperion",
+        "directionSystem": "Yemaki",
+        "distance": 7340,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -1122,11 +1128,11 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | Lalande 2966 | Name of System
+orbitBody | string | Yes | 4 | Name of Body the ship orbits
+shipName | string | Yes | Generation Ship Hyperion | The name of the ship including "Generation Ship"
+directionSystem | string | No | Yemaki | System to fly towards to get to the ship
+distance | int | No | 7340 | Distance in Ls to fly towards
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -1197,11 +1203,14 @@ To get a count of all the reports:
 ```json
 [
     {
-        "systemName": "Meene",
-        "bodyName": "AB 5 A",
-        "latitude": 45.9034,
-        "longitude": 148.9801,
-        "type": "Gamma",
+        "systemName": "PLEIADES SECTOR IR-W D1-55",
+        "orbitBody": "5 A",
+        "shipName": "BTG-237",
+        "shipTag": "btg237",
+        "type": "Banner Class Bulk Cargo Ship",
+        "flightOps": false,
+        "flightSchedule": false,
+        "dockable": false,
         "cmdrName": "Dr Arcanonn",
         "reportStatus": "pending"
     }
@@ -1210,11 +1219,13 @@ To get a count of all the reports:
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
-systemName | string | Yes | Meene | Name of System
-bodyName | string | Yes | AB 5 A | Name of Body
-latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
-longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
-type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+systemName | string | Yes | PLEIADES SECTOR IR-W D1-55 | Name of System
+orbitBody | string | No | 4 | Name of Body the ship orbits
+shipName | string | Yes | BTG-237 | The name of the ship
+shipTag | string | No | btg237 | Simple lowercase shortcode of the name
+flightOps | bool | Yes | false | Does the ship have flightOps capability
+flightSchedule | bool | false | N/A | Does the ship have a schedule
+dockable | bool | false | N/A | Can you dock with the ship
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
