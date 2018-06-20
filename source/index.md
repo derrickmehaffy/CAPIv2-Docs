@@ -238,7 +238,7 @@ bodyName | string | Yes | AB 5 A | Name of Body
 latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
 type | enum | Yes | Structure | *Right now only Structure*
-hasDatabank | bool| false | Databank tracking
+hasDatabank | bool | false | Databank tracking
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
@@ -249,57 +249,6 @@ site | relationID | **CanonnOnly** | N/A | References the site the report is att
 
 ## Thargoids
 
----
-
-#### Create a new Report
-
-To send a new report:
-
-`POST https://api.canonn.technology/report`
-
-<aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
-
----
-
-#### Update an existing Report
-
-To update a report:
-
-`PUT https://api.canonn.technology/report/ID`
-
-<aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
-<aside class="warning">Please only update reports that belong to you</aside>
-
----
-
-#### Get a list of all reports
-
-To get a list of all reports:
-
-`GET https://api.canonn.technology/report`
-
-<aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
-
----
-
-#### Get a specific report
-
-To get a specific report by ID:
-
-`GET https://api.canonn.technology/report/ID`
-
-<aside class="notice">Replace `ID` with the report id</aside>
-
----
-
-#### Get a count of all reports
-
-To get a count of all the reports:
-
-`GET https://api.canonn.technology/report/count`
-
----
-
 ### Thargoid Barnacles
 
 ---
@@ -308,7 +257,7 @@ To get a count of all the reports:
 
 To send a new report:
 
-`POST https://api.canonn.technology/report`
+`POST https://api.canonn.technology/tbreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -318,7 +267,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/report/ID`
+`PUT https://api.canonn.technology/tbreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -329,7 +278,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/report`
+`GET https://api.canonn.technology/tbreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -339,7 +288,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/report/ID`
+`GET https://api.canonn.technology/tbreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -349,7 +298,44 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/report/count`
+`GET https://api.canonn.technology/tbreport/count`
+
+---
+
+#### TB Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Pleiades Sector IH-V C2-16",
+        "bodyName": "D 2",
+        "latitude": 43.3664,
+        "longitude": 155.3691,
+        "type": "Barnacle",
+        "count": 42,
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Pleiades Sector IH-V C2-16 | Name of System
+bodyName | string | Yes | D 2 | Name of Body
+latitude | decimal | Yes | 43.3664 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 155.3691 | Longitude should match this format 80.4567
+type | enum | Yes | Barnacle | Barnacle or Megabarnacle
+count | int | no | 42 | Optional count of the Barnacles
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
@@ -361,7 +347,7 @@ To get a count of all the reports:
 
 To send a new report:
 
-`POST https://api.canonn.technology/report`
+`POST https://api.canonn.technology/tsreport`
 
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
@@ -371,7 +357,7 @@ To send a new report:
 
 To update a report:
 
-`PUT https://api.canonn.technology/report/ID`
+`PUT https://api.canonn.technology/tsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -382,7 +368,7 @@ To update a report:
 
 To get a list of all reports:
 
-`GET https://api.canonn.technology/report`
+`GET https://api.canonn.technology/tsreport`
 
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
@@ -392,7 +378,7 @@ To get a list of all reports:
 
 To get a specific report by ID:
 
-`GET https://api.canonn.technology/report/ID`
+`GET https://api.canonn.technology/tsreport/ID`
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -402,7 +388,42 @@ To get a specific report by ID:
 
 To get a count of all the reports:
 
-`GET https://api.canonn.technology/report/count`
+`GET https://api.canonn.technology/tsreport/count`
+
+---
+
+#### TS Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "COL 285 SECTOR CV-Y D57",
+        "bodyName": "AB 4 A",
+        "latitude": 4.7654,
+        "longitude": 136.2398,
+        "status": "Inactive",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | COL 285 SECTOR CV-Y D57 | Name of System
+bodyName | string | Yes | AB 4 A | Name of Body
+latitude | decimal | Yes | 4.7654 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 136.2398 | Longitude should match this format 80.4567
+status | enum | Yes | Inactive | Active or Inactive
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
@@ -461,6 +482,41 @@ To get a count of all the reports:
 
 ---
 
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
 ### Fungal Gourds
 
 ---
@@ -514,6 +570,41 @@ To get a count of all the reports:
 
 ---
 
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
 ### Tube Worms
 
 ---
@@ -564,6 +655,41 @@ To get a specific report by ID:
 To get a count of all the reports:
 
 `GET https://api.canonn.technology/report/count`
+
+---
+
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
@@ -622,6 +748,41 @@ To get a count of all the reports:
 
 ---
 
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
 ### Fumaroles
 
 ---
@@ -672,6 +833,41 @@ To get a specific report by ID:
 To get a count of all the reports:
 
 `GET https://api.canonn.technology/report/count`
+
+---
+
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
@@ -728,6 +924,41 @@ To get a count of all the reports:
 
 ---
 
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
 ### Lava Spouts
 
 ---
@@ -778,6 +1009,41 @@ To get a specific report by ID:
 To get a count of all the reports:
 
 `GET https://api.canonn.technology/report/count`
+
+---
+
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
@@ -836,6 +1102,41 @@ To get a count of all the reports:
 
 ---
 
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
 ### Megaships
 
 ---
@@ -886,6 +1187,41 @@ To get a specific report by ID:
 To get a count of all the reports:
 
 `GET https://api.canonn.technology/report/count`
+
+---
+
+#### Report Structure
+
+> Example Structure in JSON
+
+```json
+[
+    {
+        "systemName": "Meene",
+        "bodyName": "AB 5 A",
+        "latitude": 45.9034,
+        "longitude": 148.9801,
+        "type": "Gamma",
+        "cmdrName": "Dr Arcanonn",
+        "reportStatus": "pending"
+    }
+]
+```
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+systemName | string | Yes | Meene | Name of System
+bodyName | string | Yes | AB 5 A | Name of Body
+latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
+longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
+type | enum | Yes | Gamma | Alpha, Beta, or Gamma
+cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+screenshot | upload | No | N/A | More information on this will come soon
+reportStatus | enum | Yes | **pending** | You MUST send "pending"
+comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
+added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
+site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
 ---
 
