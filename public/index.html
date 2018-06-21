@@ -23,7 +23,7 @@
     
       <script>
         $(function() {
-            setupLanguages(["javascript","python","bash"]);
+            setupLanguages(["examples","javascript","python","bash"]);
         });
       </script>
     
@@ -40,6 +40,8 @@
       <img src="images/logo.png">
       
         <div class="lang-selector">
+          
+              <a href="#" data-language-name="examples">examples</a>
           
               <a href="#" data-language-name="javascript">javascript</a>
           
@@ -72,7 +74,8 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Welcome to the Canonn APIv2! Our API is built to catelog and store information for the game Elite: Dangerous. Within these docs we will show you examples of how to use our data to build tools or to send data to us.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><img src="images/rd-logo.png" alt="Canonn R&amp;D Logo" title="Canonn R&amp;D"></p>
+<p>Welcome to the Canonn APIv2! Our API is built to catelog and store information for the game Elite: Dangerous. Within these docs we will show you examples of how to use our data to build tools or to send data to us.</p>
 <p>It should be noted that right now we support a limited number of “sites” and that more will be added as soon as we can.</p>
 <h2 id="Celestial"><a href="#Celestial" class="headerlink" title="Celestial"></a>Celestial</h2><p>Below you will find the different types of celestial data we support and some of our data is cached from EDSM such as the x/y/z coords in <code>Systems</code> and most of the data in <code>Bodies</code> and <code>Rings</code>.</p>
 <p>The celestial bodies are gathered in reports, additional information is pulled from EDSM and cached in our database for <code>x</code> amount of time. (Currently we do not have our script enabled to pull this data).</p>
@@ -111,7 +114,42 @@
 <li>Megaships : MS</li>
 <li>Unknown Signal Sources : USS (Note this endpoint is subject to change often)</li>
 </ul>
-<h1 id="Filters"><a href="#Filters" class="headerlink" title="Filters"></a>Filters</h1><p>Coming Soon!</p>
+<h1 id="Filters-Sort-and-Limit"><a href="#Filters-Sort-and-Limit" class="headerlink" title="Filters, Sort, and Limit"></a>Filters, Sort, and Limit</h1><p>Note that filters can only be used on <code>GET</code> requests. If you feel there is another place these can be used please file an issue on our github.</p>
+<h2 id="Filters"><a href="#Filters" class="headerlink" title="Filters"></a>Filters</h2><blockquote>
+<p>Find Systems matching a certain region:</p>
+</blockquote>
+<pre><code class="highlight plain"><span class="line">GET https://api.canonn.tech/system?systemName_contains=Pleiades Sector</span><br></code></pre>
+<blockquote>
+<p>Find Locations by type:</p>
+</blockquote>
+<pre><code class="highlight plain"><span class="line">GET https://api.canonn.tech/location?type=GR</span><br></code></pre>
+<p>Easily filter results according to fields values.</p>
+<ul>
+<li><code>=</code> : Equals</li>
+<li><code>_ne</code> : Not equals</li>
+<li><code>_lt</code> : Lower than</li>
+<li><code>_gt</code> : Greater than</li>
+<li><code>_lte</code> : Lower than or equal to</li>
+<li><code>_gte</code> : Greater than or equal to</li>
+<li><code>_contains</code> : Contains</li>
+<li><code>_containss</code> : Contains case sensitive</li>
+</ul>
+<p>You can also combine multiple filters to narrow your search, or combine them with some of the options below.</p>
+<h2 id="Sort"><a href="#Sort" class="headerlink" title="Sort"></a>Sort</h2><blockquote>
+<p>Examples of sorting</p>
+</blockquote>
+<pre><code class="highlight plain"><span class="line">GET https://api.canonn.tech/system?_sort=systemName:asc</span><br><span class="line"></span><br><span class="line">GET https://api.canonn.tech/grsite?_sort=type:desc</span><br></code></pre>
+<p>Sorting allows you to sort the response based on whatever part of the data you wish in either ascending or descending</p>
+<h2 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h2><blockquote>
+<p>Example of limiting the GR Reports</p>
+</blockquote>
+<pre><code class="highlight plain"><span class="line">GET https://api.canonn.tech/grrport?_limit=50</span><br></code></pre>
+<p>Limits by default are set to 100 on all <code>GET</code> requests, however if you need more data you can manually set the limit. Please be careful when doing so, as this could put a high amount of load on our servers thus causing issues for other users.</p>
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><blockquote>
+<p>Example of paging records</p>
+</blockquote>
+<pre><code class="highlight plain"><span class="line">Grab the first &quot;page&quot;:</span><br><span class="line">GET https://api.canonn.tech/system?_start=0&amp;_limit=50</span><br><span class="line"></span><br><span class="line">Grab the second &quot;page:</span><br><span class="line">GET https://api.canonn.tech/system?_start=50&amp;_limit=50</span><br></code></pre>
+<p>Due to how our limits work, you can also grab data in “pages” by using the start option. In this case the start option allows you define the depth of the records (not by id)</p>
 <h1 id="Reporting"><a href="#Reporting" class="headerlink" title="Reporting"></a>Reporting</h1><aside class="notice"><br>Please remember to only send the data we require, all reports should be sent with the reportStatus as “pending”. Further details will be listed under each endpoint and required fields will be notated; fields labeled as “Canonn Only Use” should never be sent.<br></aside>
 
 <aside class="success"><br>All of these reporting endpoints do not require any authentication and can be used by anyone to send us data. If you have any recommendations please file a feature request on our github.<br></aside>
@@ -243,7 +281,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Guardian-Structures"><a href="#Guardian-Structures" class="headerlink" title="Guardian Structures"></a>Guardian Structures</h3><hr>
 <h4 id="Create-a-new-Report-1"><a href="#Create-a-new-Report-1" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/gsreport</code></p>
@@ -503,7 +540,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Thargoid-Structures"><a href="#Thargoid-Structures" class="headerlink" title="Thargoid Structures"></a>Thargoid Structures</h3><hr>
 <h4 id="Create-a-new-Report-3"><a href="#Create-a-new-Report-3" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/tsreport</code></p>
@@ -629,7 +665,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="Biology-1"><a href="#Biology-1" class="headerlink" title="Biology"></a>Biology</h2><h3 id="Brain-Trees"><a href="#Brain-Trees" class="headerlink" title="Brain Trees"></a>Brain Trees</h3><hr>
 <h4 id="Create-a-new-Report-4"><a href="#Create-a-new-Report-4" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/btreport</code></p>
@@ -755,7 +790,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Fungal-Gourds"><a href="#Fungal-Gourds" class="headerlink" title="Fungal Gourds"></a>Fungal Gourds</h3><hr>
 <h4 id="Create-a-new-Report-5"><a href="#Create-a-new-Report-5" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/fgreport</code></p>
@@ -881,7 +915,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Tube-Worms"><a href="#Tube-Worms" class="headerlink" title="Tube Worms"></a>Tube Worms</h3><hr>
 <h4 id="Create-a-new-Report-6"><a href="#Create-a-new-Report-6" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/twreport</code></p>
@@ -1007,7 +1040,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="Geology-1"><a href="#Geology-1" class="headerlink" title="Geology"></a>Geology</h2><h3 id="Bark-Mounds"><a href="#Bark-Mounds" class="headerlink" title="Bark Mounds"></a>Bark Mounds</h3><hr>
 <h4 id="Create-a-new-Report-7"><a href="#Create-a-new-Report-7" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/bmreport</code></p>
@@ -1133,7 +1165,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Fumaroles"><a href="#Fumaroles" class="headerlink" title="Fumaroles"></a>Fumaroles</h3><hr>
 <h4 id="Create-a-new-Report-8"><a href="#Create-a-new-Report-8" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/fmreport</code></p>
@@ -1266,7 +1297,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Geysers"><a href="#Geysers" class="headerlink" title="Geysers"></a>Geysers</h3><hr>
 <h4 id="Create-a-new-Report-9"><a href="#Create-a-new-Report-9" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/gyreport</code></p>
@@ -1399,7 +1429,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Lava-Spouts"><a href="#Lava-Spouts" class="headerlink" title="Lava Spouts"></a>Lava Spouts</h3><hr>
 <h4 id="Create-a-new-Report-10"><a href="#Create-a-new-Report-10" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/lsreport</code></p>
@@ -1525,7 +1554,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="Orbial"><a href="#Orbial" class="headerlink" title="Orbial"></a>Orbial</h2><h3 id="Generation-Ships"><a href="#Generation-Ships" class="headerlink" title="Generation Ships"></a>Generation Ships</h3><hr>
 <h4 id="Create-a-new-Report-11"><a href="#Create-a-new-Report-11" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/genreport</code></p>
@@ -1651,7 +1679,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="Megaships"><a href="#Megaships" class="headerlink" title="Megaships"></a>Megaships</h3><hr>
 <h4 id="Create-a-new-Report-12"><a href="#Create-a-new-Report-12" class="headerlink" title="Create a new Report"></a>Create a new Report</h4><p>To send a new report:</p>
 <p><code>POST https://api.canonn.tech/msreport</code></p>
@@ -1891,6 +1918,8 @@
       <div class="dark-box">
         
           <div class="lang-selector">
+            
+                <a href="#" data-language-name="examples">examples</a>
             
                 <a href="#" data-language-name="javascript">javascript</a>
             

@@ -2,6 +2,7 @@
 title: Canonn APIv2 - Docs
 
 language_tabs:
+  - examples
   - javascript
   - python
   - bash
@@ -18,6 +19,8 @@ search: true
 ---
 
 # Introduction
+
+![Canonn R&D Logo](images/rd-logo.png "Canonn R&D")
 
 Welcome to the Canonn APIv2! Our API is built to catelog and store information for the game Elite: Dangerous. Within these docs we will show you examples of how to use our data to build tools or to send data to us.
 
@@ -70,9 +73,73 @@ Below you will see each site listed by its name and short code, we do use the sh
 * Megaships : MS
 * Unknown Signal Sources : USS (Note this endpoint is subject to change often)
 
-# Filters
+# Filters, Sort, and Limit
 
-Coming Soon!
+Note that filters can only be used on `GET` requests. If you feel there is another place these can be used please file an issue on our github.
+
+## Filters
+
+> Find Systems matching a certain region:
+
+```examples
+GET https://api.canonn.tech/system?systemName_contains=Pleiades Sector
+```
+
+> Find Locations by type:
+
+```examples
+GET https://api.canonn.tech/location?type=GR
+```
+
+
+Easily filter results according to fields values.
+
+* `=` : Equals
+* `_ne` : Not equals
+* `_lt` : Lower than
+* `_gt` : Greater than
+* `_lte` : Lower than or equal to
+* `_gte` : Greater than or equal to
+* `_contains` : Contains
+* `_containss` : Contains case sensitive
+
+You can also combine multiple filters to narrow your search, or combine them with some of the options below.
+
+## Sort
+
+> Examples of sorting
+
+```examples
+GET https://api.canonn.tech/system?_sort=systemName:asc
+
+GET https://api.canonn.tech/grsite?_sort=type:desc
+```
+
+Sorting allows you to sort the response based on whatever part of the data you wish in either ascending or descending
+
+## Limit
+
+> Example of limiting the GR Reports
+
+```examples
+GET https://api.canonn.tech/grrport?_limit=50
+```
+
+Limits by default are set to 100 on all `GET` requests, however if you need more data you can manually set the limit. Please be careful when doing so, as this could put a high amount of load on our servers thus causing issues for other users.
+
+## Start
+
+> Example of paging records
+
+```examples
+Grab the first "page":
+GET https://api.canonn.tech/system?_start=0&_limit=50
+
+Grab the second "page:
+GET https://api.canonn.tech/system?_start=50&_limit=50
+```
+
+Due to how our limits work, you can also grab data in "pages" by using the start option. In this case the start option allows you define the depth of the records (not by id)
 
 # Reporting
 
@@ -174,7 +241,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Guardian Structures
 
@@ -337,7 +403,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Thargoid Structures
 
@@ -425,7 +490,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ## Biology
 
@@ -515,7 +579,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Fungal Gourds
 
@@ -603,7 +666,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Tube Worms
 
@@ -691,7 +753,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ## Geology
 
@@ -781,7 +842,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Fumaroles
 
@@ -871,7 +931,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Geysers
 
@@ -961,7 +1020,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Lava Spouts
 
@@ -1049,7 +1107,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ## Orbial
 
@@ -1139,7 +1196,6 @@ voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
----
 
 ### Megaships
 
