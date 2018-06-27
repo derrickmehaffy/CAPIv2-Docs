@@ -26,6 +26,10 @@ Welcome to the Canonn APIv2! Our API is built to catelog and store information f
 
 It should be noted that right now we support a limited number of "sites" and that more will be added as soon as we can.
 
+## Current Version
+
+The current version of the CAPIv2 is `v2.0.6` and is still in active development and testing. If you would like to contribute please PM DMehaffy on discord `DMehaffy#1337`
+
 ## Celestial
 
 Below you will find the different types of celestial data we support and some of our data is cached from EDSM such as the x/y/z coords in `Systems` and most of the data in `Bodies` and `Rings`.
@@ -165,6 +169,20 @@ To send a new report:
 
 `POST https://api.canonn.tech/grreport`
 
+In addition to the typical report you can also submit active groups and active obelisks:
+
+`POST https://api.canonn.tech/grobeliskgroupreport`
+
+`POST https://api.canonn.tech/grobeliskreport`
+
+Note that you will need to post a `grreport` first as both of these endpoints will ask for the report ID. You will also need to reference the following endpoints to get the ID of the obelisk and the obelisk group:
+
+`GET https://api.canonn.tech/grobeliskgroup`
+
+`GET https://api.canonn.tech/grobelisk`
+
+You can further narrow down these based on the selected type to filter these get requests. Please see the Filters documentation.
+
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
 ---
@@ -174,6 +192,12 @@ To send a new report:
 To update a report:
 
 `PUT https://api.canonn.tech/grreport/ID`
+
+To update an obelisk or obelisk group report use the following endpoints:
+
+`PUT https://api.canonn.tech/grobeliskgroupreport/ID`
+
+`PUT https://api.canonn.tech/grobeliskreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -186,6 +210,8 @@ To get a list of all reports:
 
 `GET https://api.canonn.tech/grreport`
 
+Note that this endpoint will also include the related reports with the obelisks and obelisk groups
+
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
 ---
@@ -196,6 +222,8 @@ To get a specific report by ID:
 
 `GET https://api.canonn.tech/grreport/ID`
 
+Note that this endpoint will also include the related reports with the obelisks and obelisk groups
+
 <aside class="notice">Replace `ID` with the report id</aside>
 
 ---
@@ -205,6 +233,14 @@ To get a specific report by ID:
 To get a count of all the reports:
 
 `GET https://api.canonn.tech/grreport/count`
+
+To get a count of the obelisk group reports:
+
+`GET https://api.canonn.tech/grobeliskgroupreport/count`
+
+To get a count of obelisk reports:
+
+`GET https://api.canonn.tech/grobeliskreport/count`
 
 ---
 
@@ -234,13 +270,176 @@ latitude | decimal | Yes | 45.9034 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.4567
 type | enum | Yes | Gamma | Alpha, Beta, or Gamma
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
 
+---
+
+#### GR Obelisk & Group Structure
+
+> Example response with obelisk and obelisk groups (Do not attempt to send this entire response, nested posts are not allowed)
+
+```
+{
+    "id": 1,
+    "systemName": "SYNUEFE XR-H D11-102",
+    "bodyName": "1 B",
+    "latitude": -31.7347,
+    "longitude": -128.9212,
+    "type": "Beta",
+    "cmdrName": "Dr Arcanonn",
+    "reportStatus": "pending",
+    "comment": null,
+    "voteCount": null,
+    "added": false,
+    "site": null,
+    "created_at": "2018-06-24T06:50:58.000Z",
+    "updated_at": "2018-06-24T07:03:41.000Z",
+    "grobeliskgroupreport": [
+        {
+            "id": 1,
+            "grreport": 1,
+            "grobeliskgroup": 18,
+            "created_at": "2018-06-24T06:53:39.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 2,
+            "grreport": 1,
+            "grobeliskgroup": 20,
+            "created_at": "2018-06-24T06:54:15.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 3,
+            "grreport": 1,
+            "grobeliskgroup": 21,
+            "created_at": "2018-06-24T06:54:31.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 4,
+            "grreport": 1,
+            "grobeliskgroup": 24,
+            "created_at": "2018-06-24T06:54:59.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 5,
+            "grreport": 1,
+            "grobeliskgroup": 27,
+            "created_at": "2018-06-24T06:55:04.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 6,
+            "grreport": 1,
+            "grobeliskgroup": 34,
+            "created_at": "2018-06-24T06:55:25.000Z",
+            "updated_at": "2018-06-24T07:09:58.000Z"
+        },
+        {
+            "id": 7,
+            "grreport": 1,
+            "grobeliskgroup": 37,
+            "created_at": "2018-06-24T06:55:29.000Z",
+            "updated_at": "2018-06-24T06:55:29.000Z"
+        }
+    ],
+    "grobeliskreport": [
+        {
+            "id": 1,
+            "grreport": 1,
+            "grobelisk": 278,
+            "created_at": "2018-06-24T06:57:38.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 2,
+            "grreport": 1,
+            "grobelisk": 295,
+            "created_at": "2018-06-24T06:59:38.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 3,
+            "grreport": 1,
+            "grobelisk": 301,
+            "created_at": "2018-06-24T07:00:11.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 4,
+            "grreport": 1,
+            "grobelisk": 317,
+            "created_at": "2018-06-24T07:00:38.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 5,
+            "grreport": 1,
+            "grobelisk": 374,
+            "created_at": "2018-06-24T07:02:33.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 6,
+            "grreport": 1,
+            "grobelisk": 376,
+            "created_at": "2018-06-24T07:02:43.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 7,
+            "grreport": 1,
+            "grobelisk": 401,
+            "created_at": "2018-06-24T07:02:56.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 8,
+            "grreport": 1,
+            "grobelisk": 503,
+            "created_at": "2018-06-24T07:03:12.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 9,
+            "grreport": 1,
+            "grobelisk": 553,
+            "created_at": "2018-06-24T07:03:31.000Z",
+            "updated_at": "2018-06-24T07:10:00.000Z"
+        },
+        {
+            "id": 10,
+            "grreport": 1,
+            "grobelisk": 555,
+            "created_at": "2018-06-24T07:03:41.000Z",
+            "updated_at": "2018-06-24T07:03:41.000Z"
+        }
+    ],
+    "screenshot": []
+}
+```
+
+**GR Obelisk Group Report**
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+grreport | int | Yes | 1 | ID of the GR Report
+grobeliskgroup | int | Yes | 18 | ID of the Obelisk Group
+
+**GR Obelisk Report**
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+grreport | int | Yes | 1 | ID of the GR Report
+grobelisk | int | Yes | 278 | ID of the Obelisk
 
 ### Guardian Structures
 
@@ -252,6 +451,20 @@ To send a new report:
 
 `POST https://api.canonn.tech/gsreport`
 
+In addition to the typical report you can also submit active groups and active obelisks:
+
+`POST https://api.canonn.tech/gsobeliskgroupreport`
+
+`POST https://api.canonn.tech/gsobeliskreport`
+
+Note that you will need to post a `grreport` first as both of these endpoints will ask for the report ID. You will also need to reference the following endpoints to get the ID of the obelisk and the obelisk group:
+
+`GET https://api.canonn.tech/gsobeliskgroup`
+
+`GET https://api.canonn.tech/gsobelisk`
+
+You can further narrow down these based on the selected type to filter these get requests. Please see the Filters documentation.
+
 <aside class="notice">Please only send the data we ask for, see the structure docs for more info</aside>
 
 ---
@@ -261,6 +474,12 @@ To send a new report:
 To update a report:
 
 `PUT https://api.canonn.tech/gsreport/ID`
+
+To update an obelisk or obelisk group report use the following endpoints:
+
+`PUT https://api.canonn.tech/gsobeliskgroupreport/ID`
+
+`PUT https://api.canonn.tech/gsobeliskreport/ID`
 
 <aside class="notice">Replace `ID` with the report id, you also only need to send changed fields</aside>
 <aside class="warning">Please only update reports that belong to you</aside>
@@ -273,6 +492,8 @@ To get a list of all reports:
 
 `GET https://api.canonn.tech/gsreport`
 
+Note that this endpoint will also include the related reports with the obelisks and obelisk groups
+
 <aside class="notice">By default "GET" requests are limited to 100 entries, see the filters info to increase this</aside>
 
 ---
@@ -282,6 +503,8 @@ To get a list of all reports:
 To get a specific report by ID:
 
 `GET https://api.canonn.tech/gsreport/ID`
+
+Note that this endpoint will also include the related reports with the obelisks and obelisk groups
 
 <aside class="notice">Replace `ID` with the report id</aside>
 
@@ -293,9 +516,19 @@ To get a count of all the reports:
 
 `GET https://api.canonn.tech/gsreport/count`
 
+To get a count of the obelisk group reports:
+
+`GET https://api.canonn.tech/gsobeliskgroupreport/count`
+
+To get a count of obelisk reports:
+
+`GET https://api.canonn.tech/gsobeliskreport/count`
+
 ---
 
 #### GS Report Structure
+
+> Example Structure in JSON coming soon!
 
 Parameter | Type | Required | Example | Description |
 --------- | ---- | -------- | ------- | ----------- |
@@ -306,12 +539,33 @@ longitude | decimal | Yes | 148.9801 | Longitude should match this format 80.456
 type | enum | Yes | Structure | *Right now only Structure*
 hasDatabank | bool | false | Databank tracking
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
+
+---
+
+#### GS Obelisk & Group Structure
+
+> Example response with obelisk and obelisk groups coming soon!
+
+**GS Obelisk Group Report**
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+gsreport | int | Yes | 1 | ID of the GS Report
+gsobeliskgroup | int | Yes | 18 | ID of the Obelisk Group
+
+**GS Obelisk Report**
+
+Parameter | Type | Required | Example | Description |
+--------- | ---- | -------- | ------- | ----------- |
+gsreport | int | Yes | 1 | ID of the GS Report
+gsobelisk | int | Yes | 278 | ID of the Obelisk
 
 ## Thargoids
 
@@ -396,9 +650,10 @@ longitude | decimal | Yes | 155.3691 | Longitude should match this format 80.456
 type | enum | Yes | Barnacle | Barnacle or Megabarnacle
 count | int | no | 42 | Optional count of the Barnacles
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -483,9 +738,10 @@ latitude | decimal | Yes | 4.7654 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 136.2398 | Longitude should match this format 80.4567
 status | enum | Yes | Inactive | Active or Inactive
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -572,9 +828,10 @@ latitude | decimal | Yes | -10.8164 | Latitude should match this format 80.4567
 longitude | decimal | Yes | -43.3248 | Longitude should match this format 80.4567
 count | int | No | 10 | Optional count of Brain Trees
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -659,9 +916,10 @@ latitude | decimal | Yes | 21.9127 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
 count | int | No | 26 | Optional count of Brain Trees
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -746,9 +1004,10 @@ latitude | decimal | Yes | 21.9127 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
 count | int | No | 26 | Optional count of Tube Worms
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -835,9 +1094,10 @@ latitude | decimal | Yes | 21.9127 | Latitude should match this format 80.4567
 longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
 count | int | No | 41 | Optional count of Bark Mounds
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -924,9 +1184,10 @@ longitude | decimal | Yes | 24.5374 | Longitude should match this format 80.4567
 type | enum | Yes | Silicate Vapour | *List coming soon*
 count | int | No | 21 | Optional count of Tube Worms
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -1013,9 +1274,10 @@ longitude | decimal | Yes | 155.0603 | Longitude should match this format 80.456
 type | enum | Yes | Water Vapour | *List coming soon*
 count | int | No | 13 | Optional count of Geysers
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -1100,9 +1362,10 @@ latitude | decimal | Yes | -6.9893 | Latitude should match this format 80.4567
 longitude | decimal | Yes | -152.8119 | Longitude should match this format 80.4567
 count | int | No | 26 | Optional count of Lava Spouts
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -1189,9 +1452,10 @@ shipName | string | Yes | Generation Ship Hyperion | The name of the ship includ
 directionSystem | string | No | Yemaki | System to fly towards to get to the ship
 distance | int | No | 7340 | Distance in Ls to fly towards
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to
@@ -1282,9 +1546,10 @@ flightOps | bool | Yes | false | Does the ship have flightOps capability
 flightSchedule | bool | false | N/A | Does the ship have a schedule
 dockable | bool | false | N/A | Can you dock with the ship
 cmdrName | string | Yes | Dr Arcanonn | Only one CMDR per report please
+cmdrComment | text | No | N/A | Optional comments provided by the CMDR
 screenshot | upload | No | N/A | More information on this will come soon
 reportStatus | enum | Yes | **pending** | You MUST send "pending"
-comment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
+reportComment | text | **CanonnOnly** | N/A | Comments provided by Canonn on report
 voteCount | int | **CanonnOnly** | N/A | Used by our EDMC Plugin to crowd source data
 added | bool | **CanonnOnly** | N/A | Used to note we have added the site to our list
 site | relationID | **CanonnOnly** | N/A | References the site the report is attached to

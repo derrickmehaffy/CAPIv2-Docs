@@ -11,7 +11,7 @@ Error Code | Meaning
 405 | Method Not Allowed -- Error, does not compute
 406 | Not Acceptable -- You requested a format that isn't json
 410 | Gone -- The requested record has been removed from our servers
-418 | I'm a ~~teapot~~ Tharoid
+418 | I'm a ~~teapot~~ Thargoid
 429 | Too Many Requests -- You're requesting too many artifacts! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
